@@ -1,0 +1,7 @@
+# Old per-location subdomains -> consolidated location pages
+https://charlotte.elsombreromexicanrestaurant.com /charlotte/ 301
+https://charlotte.elsombreromexicanrestaurant.com/* /charlotte/ 301
+https://franklin.elsombreromexicanrestaurant.com /franklin/ 301
+https://franklin.elsombreromexicanrestaurant.com/* /franklin/ 301
+https://lenox.elsombreromexicanrestaurant.com /lenox-village/ 301
+https://lenox.elsombreromexicanrestaurant.com/* /lenox-village/ 301

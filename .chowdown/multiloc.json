@@ -1,0 +1,16 @@
+{
+  "brand": "El Sombrero",
+  "domain": "elsombreromexicanrestaurant.com",
+  "locations": 3,
+  "pages": [
+    "/",
+    "/locations/",
+    "/menu/",
+    "/charlotte/",
+    "/charlotte/vip/",
+    "/franklin/",
+    "/franklin/vip/",
+    "/lenox-village/",
+    "/lenox-village/vip/"
+  ]
+}
