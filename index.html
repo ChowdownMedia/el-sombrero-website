@@ -103,20 +103,25 @@
   .dishes-head h2 span{color:#2ec4b6}
   .fullmenu{font-family:'Space Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#ffce2e;text-decoration:none;border-bottom:2px solid #ffce2e;padding-bottom:3px}
   .dish-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  .dish{position:relative;border-radius:20px;overflow:hidden;min-height:230px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+  .dish{position:relative;border-radius:20px;overflow:hidden;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
   .dish:hover{transform:translateY(-8px);box-shadow:0 26px 44px rgba(0,0,0,.45)}
-  .dish .weave{position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(6,42,49,.06) 0 16px,transparent 16px 32px)}
-  .dish .chip{display:inline-block;font-family:'Space Mono',monospace;font-weight:700;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;position:relative;z-index:2}
-  .dish h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:27px;line-height:1;letter-spacing:-.02em;position:relative;z-index:2}
-  .dish p{margin-top:9px;font-size:14px;line-height:1.45;opacity:.85;position:relative;z-index:2}
+  .dish>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+  .dish:hover>img{transform:scale(1.06)}
+  .dish .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(6,42,49,.94) 4%,rgba(6,42,49,.5) 42%,rgba(6,42,49,0) 72%)}
+  .dish .chip{position:absolute;top:15px;left:15px;z-index:2;display:inline-block;font-family:'Space Mono',monospace;font-weight:700;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:#ff6b35;color:#062a31}
+  .dish .cap{position:relative;z-index:2;padding:22px}
+  .dish h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;line-height:1;letter-spacing:-.02em;color:#f6ecd4}
+  .dish p{margin-top:8px;font-size:13.5px;line-height:1.45;color:rgba(246,236,212,.82)}
 
   .drinks{position:relative;background:linear-gradient(160deg,#3f78a8,#0b3d47);padding:clamp(70px,9vw,130px) 0;overflow:hidden}
   .drinks .spinr{position:absolute;right:-100px;bottom:-140px;width:460px;height:460px;border-radius:50%;background:repeating-conic-gradient(rgba(255,206,46,.5) 0 8deg,transparent 8deg 16deg);opacity:.25;animation:spinr 50s linear infinite;will-change:transform;contain:strict}
   .drinks-grid{position:relative;z-index:2;display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,64px);align-items:center}
-  .salud{border-radius:24px;overflow:hidden;aspect-ratio:3/3.6;background:repeating-linear-gradient(45deg,#0b3d47,#0b3d47 14px,#134f5e 14px 28px);box-shadow:0 30px 60px rgba(0,0,0,.4);transform:rotate(-2deg);display:flex;align-items:center;justify-content:center}
-  .salud-in{text-align:center;padding:24px}
+  .salud{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:3/3.6;box-shadow:0 30px 60px rgba(0,0,0,.4);transform:rotate(-2deg);display:flex;align-items:flex-end;justify-content:center}
+  .salud>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .salud .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(6,42,49,.9) 3%,rgba(6,42,49,.15) 40%,rgba(6,42,49,0) 66%)}
+  .salud-in{position:relative;z-index:2;text-align:center;padding:26px}
   .salud-in .big{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(30px,4vw,46px);line-height:.95;color:#ffce2e;letter-spacing:-.02em}
-  .salud-in .sm{margin-top:14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,236,212,.6)}
+  .salud-in .sm{margin-top:14px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,236,212,.72)}
   .drinks h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(38px,5.5vw,72px);line-height:.94;letter-spacing:-.03em;color:#f6ecd4}
   .drinks h2 span{color:#ffce2e}
   .drinks p.lead{margin-top:22px;font-size:18px;line-height:1.6;color:rgba(246,236,212,.85);max-width:460px}
@@ -285,25 +290,29 @@
         <a class="fullmenu" href="/menu/">View full menu &rarr;</a>
       </div>
       <div class="dish-grid">
-        <div class="dish" data-reveal style="background:#ff6b35;color:#062a31">
-          <div class="weave"></div>
-          <div style="position:relative;z-index:2"><span class="chip" style="background:#062a31;color:#ffce2e">House fave</span></div>
-          <div style="position:relative;z-index:2"><h3>Sizzling Fajitas</h3><p>Marinated steak and chicken, peppers, onions, served loud.</p></div>
+        <div class="dish" data-reveal>
+          <img src="/assets/images/dish-molcajete.webp" alt="Molcajete: grilled meats sizzling in a stone bowl" width="600" height="900" loading="lazy">
+          <div class="scrim"></div>
+          <span class="chip">House fave</span>
+          <div class="cap"><h3>Molcajete</h3><p>Steak, chicken, shrimp and chorizo, sizzling in a lava-stone bowl.</p></div>
         </div>
-        <div class="dish" data-reveal style="background:#2ec4b6;color:#062a31">
-          <div class="weave"></div>
-          <div style="position:relative;z-index:2"><span class="chip" style="background:#062a31;color:#2ec4b6">Classic</span></div>
-          <div style="position:relative;z-index:2"><h3>Enchiladas</h3><p>Rolled tortillas, rich sauces, melted goodness.</p></div>
+        <div class="dish" data-reveal>
+          <img src="/assets/images/dish-birria.webp" alt="Quesabirria tacos with a side of consomme" width="720" height="900" loading="lazy">
+          <div class="scrim"></div>
+          <span class="chip">Fan favorite</span>
+          <div class="cap"><h3>Quesabirria Tacos</h3><p>Slow-braised birria and melted cheese, with consomme for dipping.</p></div>
         </div>
-        <div class="dish" data-reveal style="background:#ffce2e;color:#062a31">
-          <div class="weave"></div>
-          <div style="position:relative;z-index:2"><span class="chip" style="background:#062a31;color:#ffce2e">From scratch</span></div>
-          <div style="position:relative;z-index:2"><h3>Tamales</h3><p>Slow-steamed masa wrapped in tradition.</p></div>
+        <div class="dish" data-reveal>
+          <img src="/assets/images/dish-guacamole.webp" alt="Guacamole smashed in a stone molcajete with chips" width="720" height="900" loading="lazy">
+          <div class="scrim"></div>
+          <span class="chip">Made fresh</span>
+          <div class="cap"><h3>Guacamole</h3><p>Smashed table-side with lime, cilantro and fresh chiles.</p></div>
         </div>
-        <div class="dish" data-reveal style="background:#3f78a8;color:#f6ecd4">
-          <div class="weave"></div>
-          <div style="position:relative;z-index:2"><span class="chip" style="background:rgba(246,236,212,.18);color:#f6ecd4">Fresh</span></div>
-          <div style="position:relative;z-index:2"><h3>Guacamole</h3><p>Smashed table-side with lime and fresh cilantro.</p></div>
+        <div class="dish" data-reveal>
+          <img src="/assets/images/dish-fiesta.webp" alt="La Fiesta sampler board with nachos, taquitos and quesadillas" width="900" height="600" loading="lazy">
+          <div class="scrim"></div>
+          <span class="chip">For the table</span>
+          <div class="cap"><h3>La Fiesta Sampler</h3><p>Nachos, taquitos, quesadillas and wings, built to share.</p></div>
         </div>
       </div>
     </div>
@@ -314,6 +323,8 @@
     <div class="wrap drinks-grid">
       <div data-reveal>
         <div class="salud">
+          <img src="/assets/images/salud-margarita.webp" alt="Mango margarita with a chamoy swirl and chili rim" width="507" height="760" loading="lazy">
+          <div class="scrim"></div>
           <div class="salud-in">
             <div class="big">Salud!</div>
             <div class="sm">Fresh · Top-shelf · Hand-shaken</div>
