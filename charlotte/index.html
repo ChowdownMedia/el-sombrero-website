@@ -91,8 +91,11 @@
   .hrow .d{font-weight:700;font-size:16px;color:#f6ecd4}
   .hrow .t{font-family:'Space Mono',monospace;font-size:14px;color:rgba(246,236,212,.72)}
   .mapembed{position:relative;border-radius:22px;overflow:hidden;min-height:360px;border:1px solid rgba(246,236,212,.12);box-shadow:0 30px 60px rgba(0,0,0,.35)}
-  .mapembed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .mapembed .pill{position:absolute;left:18px;bottom:18px;z-index:2;background:#ff6b35;color:#062a31;text-decoration:none;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;font-size:14px;padding:11px 18px;border-radius:999px;box-shadow:0 6px 0 #b8401f}
+  .mapembed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:2}
+  .mapembed .map-ph{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:repeating-linear-gradient(45deg,#0b3d47,#0b3d47 14px,#0e4a56 14px 28px)}
+  .mapembed .map-ph svg{width:52px;height:52px;fill:#ff6b35;filter:drop-shadow(0 6px 12px rgba(0,0,0,.35))}
+  .mapembed .map-ph span{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,236,212,.6)}
+  .mapembed .pill{position:absolute;left:18px;bottom:18px;z-index:3;background:#ff6b35;color:#062a31;text-decoration:none;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;font-size:14px;padding:11px 18px;border-radius:999px;box-shadow:0 6px 0 #b8401f}
 
   .dishes{background:#0b3d47;padding:clamp(56px,7vw,100px) 0}
   .dishes-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:40px}
@@ -267,8 +270,8 @@
         <div class="hrow"><span class="d">Sunday</span><span class="t">11:00 AM to 10:00 PM</span></div>
       </div>
     </div>
-    <div class="mapembed" data-reveal>
-      <iframe title="Map to El Sombrero Charlotte Pike" src="https://maps.google.com/maps?q=7066+Charlotte+Pike%2C+Nashville%2C+TN+37209&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="mapembed" data-reveal data-map="https://maps.google.com/maps?q=7066+Charlotte+Pike%2C+Nashville%2C+TN+37209&amp;z=15&amp;output=embed">
+      <div class="map-ph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span>View map</span></div>
       <a class="pill" href="https://www.google.com/maps/search/?api=1&amp;query=7066+Charlotte+Pike%2C+Nashville%2C+TN+37209" target="_blank" rel="noopener">Directions &rarr;</a>
     </div>
   </section>
@@ -456,6 +459,11 @@
   },{threshold:0.14});
   els.forEach(function(el){io.observe(el);});
 })();
+</script>
+<script>
+(function(){var el=document.querySelector('.mapembed[data-map]');if(!el)return;
+function load(){if(el.dataset.loaded)return;el.dataset.loaded=1;var f=document.createElement('iframe');f.src=el.dataset.map;f.loading='lazy';f.title='Google map of this location';f.setAttribute('referrerpolicy','no-referrer-when-downgrade');el.insertBefore(f,el.firstChild);}
+if('IntersectionObserver'in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){load();io.disconnect();}});},{rootMargin:'500px'});io.observe(el);}else{load();}})();
 </script>
 </body>
 </html>
