@@ -69,7 +69,7 @@
   .btn-ghost:hover{border-color:#2ec4b6;color:#2ec4b6}
   .btn-dd{display:inline-flex;align-items:center;gap:9px;text-decoration:none;background:#ff3008;color:#fff;font-weight:800;font-size:16px;padding:15px 24px;border-radius:999px;box-shadow:0 7px 0 #b3220a;transition:transform .12s,box-shadow .12s}
   .btn-dd:hover{transform:translateY(3px);box-shadow:0 4px 0 #b3220a}
-  .btn-dd svg{width:19px;height:19px;flex:none}
+  .btn-dd svg{width:22px;height:22px;flex:none}
   .hero-frame{position:relative}
   .hero-frame .brd{position:absolute;inset:-14px;border:2px solid rgba(255,107,53,.4);border-radius:26px;transform:rotate(2deg)}
   .hero-frame .shot{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3.6;background:repeating-linear-gradient(45deg,#0b3d47,#0b3d47 14px,#0e4a56 14px 28px);box-shadow:0 30px 60px rgba(0,0,0,.4)}
@@ -90,11 +90,9 @@
   .hrow{display:flex;justify-content:space-between;align-items:center;padding:15px 4px;border-bottom:1px solid rgba(246,236,212,.12)}
   .hrow .d{font-weight:700;font-size:16px;color:#f6ecd4}
   .hrow .t{font-family:'Space Mono',monospace;font-size:14px;color:rgba(246,236,212,.72)}
-  .mapcard{text-decoration:none;position:relative;border-radius:22px;overflow:hidden;min-height:360px;display:flex;align-items:center;justify-content:center;text-align:center;background:repeating-linear-gradient(45deg,#0b3d47,#0b3d47 14px,#0e4a56 14px 28px);border:1px solid rgba(246,236,212,.12)}
-  .mapcard-inner{position:relative;z-index:1;padding:24px}
-  .map-pin{width:60px;height:60px;fill:#ff6b35;filter:drop-shadow(0 6px 12px rgba(0,0,0,.35));margin:0 auto 14px}
-  .mapcard-addr{font-family:'Space Mono',monospace;font-size:14px;letter-spacing:.04em;color:rgba(246,236,212,.82);line-height:1.5;max-width:260px}
-  .mapcard .pill{position:absolute;left:20px;bottom:20px;background:#ff6b35;color:#062a31;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;font-size:15px;padding:12px 20px;border-radius:999px;box-shadow:0 6px 0 #b8401f}
+  .mapembed{position:relative;border-radius:22px;overflow:hidden;min-height:360px;border:1px solid rgba(246,236,212,.12);box-shadow:0 30px 60px rgba(0,0,0,.35)}
+  .mapembed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .mapembed .pill{position:absolute;left:18px;bottom:18px;z-index:2;background:#ff6b35;color:#062a31;text-decoration:none;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;font-size:14px;padding:11px 18px;border-radius:999px;box-shadow:0 6px 0 #b8401f}
 
   .dishes{background:#0b3d47;padding:clamp(56px,7vw,100px) 0}
   .dishes-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:40px}
@@ -102,12 +100,15 @@
   .dishes-head h2 span{color:#ffce2e}
   .fullmenu{font-family:'Space Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#2ec4b6;text-decoration:none;border-bottom:2px solid #2ec4b6;padding-bottom:3px}
   .dish-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  .dish{position:relative;border-radius:20px;overflow:hidden;min-height:230px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+  .dish{position:relative;border-radius:20px;overflow:hidden;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
   .dish:hover{transform:translateY(-8px);box-shadow:0 26px 44px rgba(0,0,0,.45)}
-  .dish .weave{position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(6,42,49,.06) 0 16px,transparent 16px 32px)}
-  .dish .chip{display:inline-block;font-family:'Space Mono',monospace;font-weight:700;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;position:relative;z-index:2}
-  .dish h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:27px;line-height:1;letter-spacing:-.02em;position:relative;z-index:2}
-  .dish p{margin-top:9px;font-size:14px;line-height:1.45;opacity:.85;position:relative;z-index:2}
+  .dish>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+  .dish:hover>img{transform:scale(1.06)}
+  .dish .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(6,42,49,.94) 4%,rgba(6,42,49,.5) 42%,rgba(6,42,49,0) 72%)}
+  .dish .chip{position:absolute;top:15px;left:15px;z-index:2;display:inline-block;font-family:'Space Mono',monospace;font-weight:700;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:#ff6b35;color:#062a31}
+  .dish .cap{position:relative;z-index:2;padding:22px}
+  .dish h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;line-height:1;letter-spacing:-.02em;color:#f6ecd4}
+  .dish p{margin-top:8px;font-size:13.5px;line-height:1.45;color:rgba(246,236,212,.82)}
 
   .reviews{background:#062a31;padding:clamp(56px,7vw,100px) 0}
   .reviews-head{text-align:center;margin-bottom:44px}
@@ -227,7 +228,7 @@
       <div class="hero-cta" id="order">
         <a class="btn-primary" href="https://online.skytab.com/s/elsombrero3franklin" target="_blank" rel="noopener">Order Online &rarr;</a>
         <a class="btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=1401+Liberty+Pike%2C+Franklin%2C+TN+37067" target="_blank" rel="noopener">Get Directions</a>
-        <a class="btn-dd" href="https://www.doordash.com/store/el-sombrero-franklin-65491/93974/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>DoorDash Delivery</a>
+        <a class="btn-dd" href="https://www.doordash.com/store/el-sombrero-franklin-65491/93974/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M23.071 8.409a6.09 6.09 0 00-5.396-3.228H.584A.589.589 0 00.17 6.184L3.894 9.93a1.752 1.752 0 001.242.516h12.049a1.554 1.554 0 11.031 3.108H8.91a.589.589 0 00-.415 1.003l3.725 3.747a1.75 1.75 0 001.242.516h3.757c4.887 0 8.584-5.225 5.852-10.413"/></svg>DoorDash Delivery</a>
       </div>
     </div>
     <div class="hero-frame">
@@ -267,13 +268,10 @@
         <div class="hrow"><span class="d">Sunday</span><span class="t">11:00 AM to 10:00 PM</span></div>
       </div>
     </div>
-    <a class="mapcard" data-reveal href="https://www.google.com/maps/search/?api=1&amp;query=1401+Liberty+Pike%2C+Franklin%2C+TN+37067" target="_blank" rel="noopener" aria-label="Open Franklin location in Google Maps">
-      <div class="mapcard-inner">
-        <svg class="map-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
-        <p class="mapcard-addr">1401 Liberty Pike, Franklin, TN 37067</p>
-      </div>
-      <span class="pill">Open in Maps &rarr;</span>
-    </a>
+    <div class="mapembed" data-reveal>
+      <iframe title="Map to El Sombrero Franklin" src="https://maps.google.com/maps?q=1401+Liberty+Pike%2C+Franklin%2C+TN+37067&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <a class="pill" href="https://www.google.com/maps/search/?api=1&amp;query=1401+Liberty+Pike%2C+Franklin%2C+TN+37067" target="_blank" rel="noopener">Directions &rarr;</a>
+    </div>
   </section>
 
   <section class="dishes">
@@ -283,25 +281,29 @@
         <a class="fullmenu" href="/menu/">Full menu &rarr;</a>
       </div>
       <div class="dish-grid">
-        <div class="dish" data-reveal style="background:#ff6b35;color:#062a31">
-          <div class="weave"></div>
-          <div style="position:relative;z-index:2"><span class="chip" style="background:#062a31;color:#ffce2e">House fave</span></div>
-          <div style="position:relative;z-index:2"><h3>Sizzling Fajitas</h3><p>Steak and chicken, peppers, onions, table-side sizzle.</p></div>
+        <div class="dish" data-reveal>
+          <img src="/assets/images/dish-molcajete.webp" alt="Molcajete: grilled meats sizzling in a stone bowl" width="600" height="900" loading="lazy">
+          <div class="scrim"></div>
+          <span class="chip">House fave</span>
+          <div class="cap"><h3>Molcajete</h3><p>Steak, chicken, shrimp and chorizo, sizzling in a lava-stone bowl.</p></div>
         </div>
-        <div class="dish" data-reveal style="background:#2ec4b6;color:#062a31">
-          <div class="weave"></div>
-          <div style="position:relative;z-index:2"><span class="chip" style="background:#062a31;color:#2ec4b6">Classic</span></div>
-          <div style="position:relative;z-index:2"><h3>Enchiladas</h3><p>Rolled tortillas, rich sauces, melted cheese.</p></div>
+        <div class="dish" data-reveal>
+          <img src="/assets/images/dish-birria.webp" alt="Quesabirria tacos with a side of consomme" width="720" height="900" loading="lazy">
+          <div class="scrim"></div>
+          <span class="chip">Fan favorite</span>
+          <div class="cap"><h3>Quesabirria Tacos</h3><p>Slow-braised birria and melted cheese, with consomme for dipping.</p></div>
         </div>
-        <div class="dish" data-reveal style="background:#ffce2e;color:#062a31">
-          <div class="weave"></div>
-          <div style="position:relative;z-index:2"><span class="chip" style="background:#062a31;color:#ffce2e">From scratch</span></div>
-          <div style="position:relative;z-index:2"><h3>Tamales</h3><p>Slow-steamed masa wrapped in tradition.</p></div>
+        <div class="dish" data-reveal>
+          <img src="/assets/images/dish-guacamole.webp" alt="Guacamole smashed in a stone molcajete with chips" width="720" height="900" loading="lazy">
+          <div class="scrim"></div>
+          <span class="chip">Made fresh</span>
+          <div class="cap"><h3>Guacamole</h3><p>Smashed table-side with lime, cilantro and fresh chiles.</p></div>
         </div>
-        <div class="dish" data-reveal style="background:#3f78a8;color:#f6ecd4">
-          <div class="weave"></div>
-          <div style="position:relative;z-index:2"><span class="chip" style="background:rgba(246,236,212,.18);color:#f6ecd4">Fresh</span></div>
-          <div style="position:relative;z-index:2"><h3>Guacamole</h3><p>Smashed fresh with lime and cilantro.</p></div>
+        <div class="dish" data-reveal>
+          <img src="/assets/images/dish-fiesta.webp" alt="La Fiesta sampler board with nachos, taquitos and quesadillas" width="900" height="600" loading="lazy">
+          <div class="scrim"></div>
+          <span class="chip">For the table</span>
+          <div class="cap"><h3>La Fiesta Sampler</h3><p>Nachos, taquitos, quesadillas and wings, built to share.</p></div>
         </div>
       </div>
     </div>
