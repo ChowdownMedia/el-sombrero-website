@@ -3,10 +3,10 @@
 > El Sombrero — 3 locations. Menu and online ordering (pickup + delivery) per location.
 
 ## Locations
-- [Charlotte](https://elsombreromexicanrestaurant.com/charlotte/): 7066 Charlotte Pike, Nashville, TN, 37209
-- [Franklin](https://elsombreromexicanrestaurant.com/franklin/): 1401 Liberty Pike, Franklin, TN, 37067
-- [Lenox Village](https://elsombreromexicanrestaurant.com/lenox-village/): 6017 Nolensville Pike, Nashville, TN, 37211
+- [Charlotte](https://www.elsombreromexicanrestaurant.com/charlotte/): 7066 Charlotte Pike, Nashville, TN, 37209
+- [Franklin](https://www.elsombreromexicanrestaurant.com/franklin/): 1401 Liberty Pike, Franklin, TN, 37067
+- [Lenox Village](https://www.elsombreromexicanrestaurant.com/lenox-village/): 6017 Nolensville Pike, Nashville, TN, 37211
 
 ## Pages
-- [Menu](https://elsombreromexicanrestaurant.com/menu/)
-- [All Locations](https://elsombreromexicanrestaurant.com/locations/)
+- [Menu](https://www.elsombreromexicanrestaurant.com/menu/)
+- [All Locations](https://www.elsombreromexicanrestaurant.com/locations/)
